@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2021-11-27T15:32:31+01:00",
+    "name": "httpd",
+    "author": "postmaster@nocturlab.fr",
+    "description": "A simple httpd service.",
+    "features": null,
+    "images": [
+        "httpd:alpine"
+    ],
+    "file_denylist": [],
+    "startup": "httpd-foreground",
+    "config": {
+        "files": "{\r\n    \"\/usr\/local\/apache2\/conf\/httpd.conf\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"ServerRoot\": \"\/home\/container\/www\",\r\n            \"Listen\": \"${SERVER_PORT}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"Command line: 'httpd -D FOREGROUND'\"\r\n}",
+        "logs": "{}",
+        "stop": "^CC"
+    },
+    "scripts": {
+        "installation": {
+            "script": null,
+            "container": "alpine:3.4",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": []
+}
